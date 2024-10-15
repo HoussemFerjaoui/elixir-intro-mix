@@ -14,21 +14,23 @@ defmodule KV.Bucket do
   Get the value from the agent
   """
   def get(agent, key) do
-    Agent.get(agent, fn agent -> Map.get(agent, key) end)
+    Agent.get(agent, fn agent_state -> Map.get(agent_state, key) end)
   end
 
   @doc """
   Put the value in the agent
   """
   def put(agent, key, value) do
-    Agent.update(agent, fn agent -> Map.put(agent, key, value) end)
+    Agent.update(agent, fn agent_state -> Map.put(agent_state, key, value) end)
   end
 
   @doc """
   Print the agent state
   """
   def print(agent) do
-    agent_state = Agent.get(agent, fn agent -> agent end)
+    # & can replace agent_state, creation anonymous function on the fly
+    # same as Agent.get(agent, fn agent_state -> agent_state end)
+    agent_state = Agent.get(agent, & &1)
     IO.puts("Agent state: #{inspect(agent_state)}")
     agent_state
   end
