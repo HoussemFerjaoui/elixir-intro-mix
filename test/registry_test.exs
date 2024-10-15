@@ -1,9 +1,13 @@
 defmodule KV.RegistryTest do
   use ExUnit.Case, async: true
 
+  # setup do
+  #   {:ok, server} = KV.Registry.start_link([])
+  #   %{server: server}
+  # end
   setup do
-    {:ok, server} = KV.Registry.start_link([])
-    %{server: server}
+    registry = start_supervised!(KV.Registry)
+    %{registry: registry}
   end
 
   test "returns error for not found bucket lookup", %{server: server} do
