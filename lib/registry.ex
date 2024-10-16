@@ -1,6 +1,6 @@
 defmodule KV.Registry do
   use GenServer
-  # TODO: Client API
+
   @doc """
   Starts the registry.
   """

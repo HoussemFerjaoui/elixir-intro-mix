@@ -5,9 +5,10 @@ defmodule KV.RegistryTest do
   #   {:ok, server} = KV.Registry.start_link([])
   #   %{server: server}
   # end
+
   setup do
-    registry = start_supervised!(KV.Registry)
-    %{registry: registry}
+    server = start_supervised!(KV.Registry)
+    %{server: server}
   end
 
   test "returns error for not found bucket lookup", %{server: server} do
