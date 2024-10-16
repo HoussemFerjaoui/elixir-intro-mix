@@ -8,7 +8,7 @@ Topics covered so far:
 * Tests
 * Agents
 * GenServers
-  * [GenServers Cheat Sheet](https://elixir-lang.org/getting-started/mix-otp/genserver.html)
+  * [GenServers Cheat Sheet](https://elixir-lang.org/downloads/cheatsheets/gen-server.pdf)
   * Client GenServer API | GenServer Callbacks
 
 * `__MODULE__` macro
